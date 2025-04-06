@@ -8,85 +8,120 @@
     <link href="css/styles.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-50">
-    <div class="min-h-screen flex flex-col">
+<body class="bg-gray-100">
+    <div class="flex flex-col h-screen">
         <!-- 顶部导航 -->
-        <header class="bg-blue-600 text-white p-4 shadow-md">
-            <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-xl font-bold">云舒肺 - 患者详情</h1>
-                <nav>
-                    <a href="doctor.html" class="px-3 py-2 rounded hover:bg-blue-700 transition">返回主界面</a>
-                </nav>
+        <header class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                <h1 class="text-xl font-bold text-blue-600">云舒肺医生工作台</h1>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-700">张医生</span>
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </header>
 
-        <!-- 主要内容 -->
-        <main class="flex-grow container mx-auto p-4">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- 患者基本信息 -->
-                <div class="lg:col-span-1">
-                    <div class="patient-card bg-white p-6 rounded-lg shadow">
-                        <h2 class="text-xl font-semibold mb-4 text-gray-800">患者基本信息</h2>
-                        <div class="space-y-3">
-                            <p><span class="font-medium">姓名：</span><span id="patient-name"></span></p>
-                            <p><span class="font-medium">年龄：</span><span id="patient-age"></span>岁</p>
-                            <p><span class="font-medium">性别：</span><span id="patient-gender"></span></p>
-                            <p><span class="font-medium">身份证号：</span><span id="patient-id"></span></p>
-                            <p><span class="font-medium">联系方式：</span><span id="patient-phone"></span></p>
-                            <p><span class="font-medium">居住地址：</span><span id="patient-address"></span></p>
-                            <p><span class="font-medium">经济状况：</span><span id="economic-status"></span></p>
-                            <p><span class="font-medium">血氧指标：</span><span id="blood-oxygen"></span></p>
-                            <p><span class="font-medium">依从性：</span><span id="compliance"></span></p>
+        <div class="flex flex-col md:flex-row flex-1 overflow-hidden">
+            <!-- 侧边栏 -->
+            <aside class="w-full md:w-64 bg-white shadow-sm">
+                <nav class="p-4">
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="doctor.html" class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                                </svg>
+                                <span class="ml-3">工作台</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="patient-management.html" class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="ml-3">患者管理</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="health-education.html" class="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                                </svg>
+                                <span class="ml-3">健康教育社区</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- 主内容区 -->
+            <main class="flex-1 overflow-y-auto p-4 md:p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- 患者基本信息 -->
+                    <div class="lg:col-span-1">
+                        <div class="patient-card bg-white p-6 rounded-lg shadow">
+                            <h2 class="text-xl font-semibold mb-4 text-gray-800">患者基本信息</h2>
+                            <div class="space-y-3">
+                                <p><span class="font-medium">姓名：</span><span id="patient-name"></span></p>
+                                <p><span class="font-medium">年龄：</span><span id="patient-age"></span>岁</p>
+                                <p><span class="font-medium">性别：</span><span id="patient-gender"></span></p>
+                                <p><span class="font-medium">身份证号：</span><span id="patient-id"></span></p>
+                                <p><span class="font-medium">联系方式：</span><span id="patient-phone"></span></p>
+                                <p><span class="font-medium">居住地址：</span><span id="patient-address"></span></p>
+                                <p><span class="font-medium">经济状况：</span><span id="economic-status"></span></p>
+                                <p><span class="font-medium">血氧指标：</span><span id="blood-oxygen"></span></p>
+                                <p><span class="font-medium">依从性：</span><span id="compliance"></span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 肺功能指标和随访记录 -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- 肺功能指标 -->
+                        <div class="patient-card bg-white p-6 rounded-lg shadow">
+                            <h2 class="text-xl font-semibold mb-4 text-gray-800">肺功能指标</h2>
+                            <div class="chart-container">
+                                <canvas id="lung-function-chart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- 随访记录 -->
+                        <div class="patient-card bg-white p-6 rounded-lg shadow">
+                            <h2 class="text-xl font-semibold mb-4 text-gray-800">随访记录</h2>
+                            <div class="overflow-x-auto">
+                                <table id="followup-table" class="followup-table w-full">
+                                    <thead>
+                                        <tr class="bg-gray-100">
+                                            <th class="p-3 text-left">日期</th>
+                                            <th class="p-3 text-left">医生</th>
+                                            <th class="p-3 text-left">内容</th>
+                                            <th class="p-3 text-left">用药</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- 由JS动态填充 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 信息发送 -->
+                        <div class="patient-card bg-white p-6 rounded-lg shadow">
+                            <h2 class="text-xl font-semibold mb-4 text-gray-800">发送信息</h2>
+                            <div class="space-y-3">
+                                <textarea id="message-input" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="3" placeholder="输入要发送给患者的信息..."></textarea>
+                                <button id="send-message-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition">发送信息</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- 肺功能指标和随访记录 -->
-                <div class="lg:col-span-2 space-y-6">
-                    <!-- 肺功能指标 -->
-                    <div class="patient-card bg-white p-6 rounded-lg shadow">
-                        <h2 class="text-xl font-semibold mb-4 text-gray-800">肺功能指标</h2>
-                        <div class="chart-container">
-                            <canvas id="lung-function-chart"></canvas>
-                        </div>
-                    </div>
-
-                    <!-- 随访记录 -->
-                    <div class="patient-card bg-white p-6 rounded-lg shadow">
-                        <h2 class="text-xl font-semibold mb-4 text-gray-800">随访记录</h2>
-                        <div class="overflow-x-auto">
-                            <table id="followup-table" class="followup-table w-full">
-                                <thead>
-                                    <tr class="bg-gray-100">
-                                        <th class="p-3 text-left">日期</th>
-                                        <th class="p-3 text-left">医生</th>
-                                        <th class="p-3 text-left">内容</th>
-                                        <th class="p-3 text-left">用药</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- 由JS动态填充 -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- 信息发送 -->
-                    <div class="patient-card bg-white p-6 rounded-lg shadow">
-                        <h2 class="text-xl font-semibold mb-4 text-gray-800">发送信息</h2>
-                        <div class="space-y-3">
-                            <textarea id="message-input" class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="3" placeholder="输入要发送给患者的信息..."></textarea>
-                            <button id="send-message-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition">发送信息</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <!-- 页脚 -->
-        <footer class="bg-gray-100 p-4 text-center text-gray-600">
-            <p>© 2025 云舒肺 - 慢性呼吸系统疾病管理平台</p>
-        </footer>
+            </main>
+        </div>
     </div>
 
     <script src="js/patient-detail.js"></script>
