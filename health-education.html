@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康教育社区 - 云书肺</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <!-- 顶部导航 -->
+        <header class="bg-blue-600 text-white p-4 shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-xl font-bold">云书肺 - 健康教育社区</h1>
+                <nav>
+                    <a href="doctor.html" class="px-3 py-2 rounded hover:bg-blue-700 transition">返回主界面</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- 主要内容 -->
+        <main class="flex-grow container mx-auto p-4">
+            <div class="grid grid-cols-1 gap-6">
+                <!-- 视频发送板块 -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-800">视频发送</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <input type="file" id="video-upload" accept="video/*" class="hidden">
+                            <button id="select-video-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition">选择视频</button>
+                            <span id="video-name" class="text-gray-600">未选择视频</span>
+                        </div>
+                        <div>
+                            <label for="video-title" class="block text-sm font-medium text-gray-700 mb-1">视频标题</label>
+                            <input type="text" id="video-title" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="video-description" class="block text-sm font-medium text-gray-700 mb-1">视频描述</label>
+                            <textarea id="video-description" rows="3" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                        <button id="upload-video-btn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition">上传视频</button>
+                    </div>
+                </div>
+
+                <!-- 推文发送板块 -->
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-800">推文发送</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="tweet-title" class="block text-sm font-medium text-gray-700 mb-1">推文标题</label>
+                            <input type="text" id="tweet-title" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="tweet-content" class="block text-sm font-medium text-gray-700 mb-1">推文内容</label>
+                            <textarea id="tweet-content" rows="5" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <input type="file" id="tweet-image" accept="image/*" class="hidden">
+                            <button id="select-image-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition">选择图片</button>
+                            <span id="image-name" class="text-gray-600">未选择图片</span>
+                        </div>
+                        <button id="publish-tweet-btn" class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition">发布推文</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="bg-gray-100 p-4 text-center text-gray-600">
+            <p>© 2025 云书肺 - 慢性呼吸系统疾病管理平台</p>
+        </footer>
+    </div>
+
+    <script>
+        // 视频上传功能
+        document.getElementById('select-video-btn').addEventListener('click', () => {
+            document.getElementById('video-upload').click();
+        });
+
+        document.getElementById('video-upload').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                document.getElementById('video-name').textContent = file.name;
+            }
+        });
+
+        // 图片上传功能
+        document.getElementById('select-image-btn').addEventListener('click', () => {
+            document.getElementById('tweet-image').click();
+        });
+
+        document.getElementById('tweet-image').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                document.getElementById('image-name').textContent = file.name;
+            }
+        });
+    </script>
+</body>
+</html>
