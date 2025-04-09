@@ -47,4 +47,4 @@ healthcare-management/
 ```
 
 ## License
-MIT License
+[MIT License](LICENSE)

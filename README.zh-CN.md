@@ -47,4 +47,4 @@ healthcare-management/
 ```
 
 ## 许可协议
-MIT 许可证
+[MIT 许可证](LICENSE)
