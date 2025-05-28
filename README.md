@@ -1,6 +1,6 @@
 # Healthcare Management System
 
-[中文文档](README.zh-CN.md) | English Version
+[中文文档](README.zh-CN.md) | English Version 1.0
 
 A web application for managing healthcare-related operations including patient records, appointments, and medical team coordination.
 
