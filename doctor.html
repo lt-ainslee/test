@@ -92,17 +92,14 @@
                 </nav>
             </aside>
 
-            <!-- 主内容区 -->
-            <main class="flex-1 overflow-y-auto p-4 md:p-6">
-                <div class="flex flex-col space-y-6 px-4">
-                    <!-- 第一大卡片 -->
-                    <div class="bg-white rounded-lg shadow" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
-                        <!-- 诊治标准部分 -->
-                        <div class="p-4 md:p-6" style="height: 40%">
-                            <h3 class="text-lg font-semibold text-gray-800">诊治标准</h3>
-                            <div class="text-sm text-gray-600 mt-2 space-y-3" style="height: calc(100% - 2rem); overflow-y: auto">
+        <!-- 主内容区 - 优化后的卡片布局 -->
+        <main class="flex-1 overflow-y-auto p-4 md:p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 px-4">
+                <!-- 诊治标准卡片 -->
+                <div class="bg-white rounded-lg shadow overflow-hidden" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
+                    <div class="p-4 md:p-6">
                         <h3 class="text-lg font-semibold text-gray-800">诊治标准</h3>
-                        <div class="text-sm text-gray-600 mt-2 space-y-3 flex-grow" style="max-height: min(70vh, 600px); overflow-y: auto">
+                        <div class="text-sm text-gray-600 mt-2 space-y-3">
                             <h4 class="font-medium text-gray-800">COPD患者诊疗标准</h4>
                             <ul class="list-disc pl-5 space-y-1">
                                 <li><span class="font-medium">诊断标准：</span>FEV1/FVC < 0.7，结合临床症状和吸烟史</li>
@@ -134,71 +131,74 @@
                             </ul>
                         </div>
                     </div>
-                        <!-- 随访日历部分 -->
-                        <div class="p-4 md:p-6 border-t border-gray-200" style="height: 60%">
-                            <h2 class="text-lg font-semibold text-gray-800 mb-4">随访日历</h2>
-                            <div id="calendar" class="calendar-container" style="height: calc(100% - 2rem); overflow-y: auto"></div>
-                        </div>
+                </div>
+                <!-- 随访日历卡片 - 增加底部空隙 -->
+                <div class="bg-white rounded-lg shadow overflow-hidden" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
+                    <div class="p-4 md:p-6 h-full flex flex-col">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">随访日历</h2>
+                        <div id="calendar" class="calendar-container flex-grow pb-2"></div>
                     </div>
+                </div>
 
-                    <!-- 第二大卡片 -->
-                    <div class="bg-white rounded-lg shadow" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 p-4 md:p-6">
-                            <!-- 转诊信息 -->
-                            <div class="bg-white p-4 rounded-lg border border-gray-100">
-                            <h2 class="text-lg font-semibold text-gray-800 mb-4">最新转诊信息</h2>
-                            <div class="space-y-3">
-                                <div class="p-3 bg-orange-50 rounded-lg">
-                                    <div class="flex justify-between">
-                                        <span class="font-medium">王某某</span>
-                                        <span class="text-sm text-orange-600">紧急</span>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mt-1">转至: 协和医院呼吸科</p>
-                                    <p class="text-xs text-gray-500 mt-2">2025-04-10 09:30 | 初步诊断: COPD急性加重</p>
+                <!-- 转诊信息卡片 -->
+                <div class="bg-white rounded-lg shadow overflow-hidden" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
+                    <div class="p-4 md:p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">最新转诊信息</h2>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-orange-50 rounded-lg">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">王某某</span>
+                                    <span class="text-sm text-orange-600">紧急</span>
                                 </div>
-                                <div class="p-3 bg-blue-50 rounded-lg">
-                                    <div class="flex justify-between">
-                                        <span class="font-medium">张芳</span>
-                                        <span class="text-sm text-blue-600">普通</span>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mt-1">转至: 华山医院胸外科</p>
-                                    <p class="text-xs text-gray-500 mt-2">2025-04-09 14:15 | 需肺部结节复查</p>
-                                </div>
+                                <p class="text-sm text-gray-600 mt-1">转至: 协和医院呼吸科</p>
+                                <p class="text-xs text-gray-500 mt-2">2025-04-10 09:30 | 初步诊断: COPD急性加重</p>
                             </div>
-                        </div>
-
-                            <!-- 肺功能分级分布 -->
-                            <div class="bg-white p-4 rounded-lg border border-gray-100">
-                            <h2 class="text-base md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">肺功能分级患者分布</h2>
-                            <div class="chart-container" style="height: 250px">
-                                <canvas id="lungFunctionChart"></canvas>
-                            </div>
-                        </div>
-
-                            <!-- 近三天随访提醒 -->
-                            <div class="bg-white p-4 rounded-lg border border-gray-100">
-                            <h2 class="text-lg font-semibold text-gray-800 mb-4">近三天随访提醒</h2>
-                            <div class="space-y-3">
-                                <div class="p-3 bg-blue-50 rounded-lg">
-                                    <div class="flex justify-between">
-                                        <span class="font-medium">王某某</span>
-                                        <span class="text-sm text-gray-500">明天 10:00</span>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mt-1">肺功能分级: GOLD 2级</p>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">张芳</span>
+                                    <span class="text-sm text-blue-600">普通</span>
                                 </div>
-                                <div class="p-3 bg-blue-50 rounded-lg">
-                                    <div class="flex justify-between">
-                                        <span class="font-medium">李某某</span>
-                                        <span class="text-sm text-gray-500">后天 14:30</span>
-                                    </div>
-                                    <p class="text-sm text-gray-600 mt-1">肺功能分级: GOLD 3级</p>
-                                </div>
+                                <p class="text-sm text-gray-600 mt-1">转至: 华山医院胸外科</p>
+                                <p class="text-xs text-gray-500 mt-2">2025-04-09 14:15 | 需肺部结节复查</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+
+                <!-- 肺功能分级分布卡片 - 优化自适应高度 -->
+                <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
+                    <div class="p-4 md:p-6 flex flex-col flex-grow">
+                        <h2 class="text-base md:text-lg font-semibold text-gray-800 mb-3 md:mb-4">肺功能分级患者分布</h2>
+                        <div class="chart-container flex-grow min-h-[200px]">
+                            <canvas id="lungFunctionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 随访提醒卡片 -->
+                <div class="bg-white rounded-lg shadow overflow-hidden" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)">
+                    <div class="p-4 md:p-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">近三天随访提醒</h2>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">王某某</span>
+                                    <span class="text-sm text-gray-500">明天 10:00</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">肺功能分级: GOLD 2级</p>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">李某某</span>
+                                    <span class="text-sm text-gray-500">后天 14:30</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-1">肺功能分级: GOLD 3级</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </main>
     </div>
 
     <script src="js/calendar.js"></script>
